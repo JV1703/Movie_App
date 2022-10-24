@@ -45,7 +45,7 @@ jobs:
           destination: reports
       - run:
           name: Core Module Unit Test
-          command: .gradlew/ :core:testDebugUnitTest
+          command: .gradlew/ :core
       - store_test_results:
           path: app/build/test-results
       - store_artifacts:  
