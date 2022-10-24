@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home_nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.movieapp.presentation.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_details_nav_graph"
+            app:destination="@id/details_graph"/>
+    </fragment>
+    <fragment
+        android:id="@+id/userFragment"
+        android:name="com.example.movieapp.presentation.home.UserFragment"
+        android:label="fragment_user"
+        tools:layout="@layout/fragment_user" />
+    <include-dynamic
+        android:id="@+id/bookmark_nav_graph"
+        app:graphPackage="com.example.movieapp.bookmark"
+        app:graphResName="bookmark_nav_graph"
+        app:moduleName="bookmark" />
+    <include-dynamic
+        android:id="@+id/search_nav_graph"
+        app:graphPackage="com.example.movieapp.search"
+        app:graphResName="search_nav_graph"
+        app:moduleName="search" />
+    <include-dynamic
+        android:id="@+id/details_graph"
+        app:graphPackage="${applicationId}.details"
+        app:graphResName="details_nav_graph"
+        app:moduleName="details" >
+        <argument
+            android:name="movieId"
+            app:argType="integer" />
+    </include-dynamic>
+
+</navigation>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/detailsFragment">
+
+
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.example.details.presentation.details.DetailsFragment"
+        android:label="fragment_details"
+        app:moduleName="details"
+        tools:layout="@layout/fragment_details">
+        <action
+            android:id="@+id/action_detailsFragment_to_viewMoreCastsFragment"
+            app:destination="@id/viewMoreCastsFragment" />
+        <action
+            android:id="@+id/action_detailsFragment_to_viewMoreCrewsFragment"
+            app:destination="@id/viewMoreCrewsFragment" />
+        <argument
+            android:name="movieId"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/viewMoreCastsFragment"
+        android:name="com.example.details.presentation.viewmore.casts.ViewMoreCastsFragment"
+        android:label="fragment_view_more_casts"
+        app:moduleName="details"
+        tools:layout="@layout/fragment_view_more_casts">
+        <argument
+            android:name="castList"
+            app:argType="com.example.core.domain.model.CastList" />
+    </fragment>
+    <fragment
+        android:id="@+id/viewMoreCrewsFragment"
+        android:name="com.example.details.presentation.viewmore.crew.ViewMoreCrewsFragment"
+        android:label="fragment_view_more_crews"
+        tools:layout="@layout/fragment_view_more_crews" >
+        <argument
+            android:name="crewList"
+            app:argType="com.example.core.domain.model.CrewList" />
+    </fragment>
+</navigation>

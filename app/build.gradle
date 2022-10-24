@@ -1,0 +1,62 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'androidx.navigation.safeargs.kotlin'
+    id 'dagger.hilt.android.plugin'
+    id 'kotlin-parcelize'
+    id 'kotlin-kapt'
+}
+
+apply from: '../shared_dependencies.gradle'
+
+android {
+    namespace 'com.example.movieapp'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.example.movieapp"
+        minSdk 24
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "com.example.moviesapp.HiltTestRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        viewBinding true
+    }
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
+    hilt {
+        enableAggregatingTask = true
+    }
+    dynamicFeatures = [':bookmark', ':search', ':details']
+}
+
+kapt {
+    correctErrorTypes true
+}
+
+dependencies {
+
+    implementation project(":core")
+
+    api "androidx.navigation:navigation-fragment-ktx:$navigation_version"
+    api "androidx.navigation:navigation-ui-ktx:$navigation_version"
+    api("androidx.navigation:navigation-dynamic-features-fragment:$navigation_version")
+}

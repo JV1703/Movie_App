@@ -1,0 +1,35 @@
+plugins {
+    id 'com.android.dynamic-feature'
+    id 'org.jetbrains.kotlin.android'
+    id 'androidx.navigation.safeargs.kotlin'
+    id 'dagger.hilt.android.plugin'
+    id 'kotlin-kapt'
+}
+
+apply from: '../shared_dependencies.gradle'
+
+android {
+    namespace 'com.example.search'
+    compileSdk 33
+
+    defaultConfig {
+        minSdk 24
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildFeatures {
+        viewBinding true
+    }
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
+    hilt {
+        enableAggregatingTask = true
+    }
+}
+
+dependencies {
+    implementation project(":core")
+    implementation project(":app")
+
+    implementation "androidx.paging:paging-runtime-ktx:3.1.1"
+}
