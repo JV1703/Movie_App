@@ -1,4 +1,4 @@
-package com.example.moviesapp.presentation.home
+package com.example.movieapp.presentation.home
 
 import com.example.core.domain.model.Movies
 

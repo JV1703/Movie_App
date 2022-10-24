@@ -1,10 +1,16 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Movie App</string>
     <string name="ratings">%1$d%%</string>
-    <string name="title_bookmark">Bookmark</string>
-    <string name="title_search">Search</string>
-    <string name="title_details">Module Title</string>
-    <string name="title_auth">Authentication</string>
+    <string name="title_bookmark" tools:keep="@string/title_bookmark">Bookmark</string>
+    <string name="title_search" tools:keep="@string/title_search">Search</string>
+    <string name="title_details" tools:keep="@string/title_details">Module Title</string>
+    <string name="title_auth" tools:keep="@string/title_auth">Authentication</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="now_playing">Now Playing</string>
+    <string name="popular_movies_near_you">Popular Movies Near You</string>
+    <string name="trending">Trending</string>
+    <string name="home">Home</string>
+    <string name="search">Search</string>
+    <string name="bookmark">Bookmark</string>
+    <string name="account">Account</string>
 </resources>

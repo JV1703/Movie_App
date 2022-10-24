@@ -32,7 +32,7 @@ class AppModule {
     fun provideConnectivityObserver(@ApplicationContext application: Context): ConnectivityObserver =
         NetworkConnectivityObserver(application)
 
-    val passphrase: ByteArray = SQLiteDatabase.getBytes("Banana".toCharArray())
+    private val passphrase: ByteArray = SQLiteDatabase.getBytes("Banana".toCharArray())
     val factory = SupportFactory(passphrase)
 
     @Provides

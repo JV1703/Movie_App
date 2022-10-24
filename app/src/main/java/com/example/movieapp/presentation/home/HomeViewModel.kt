@@ -6,7 +6,6 @@ import androidx.lifecycle.viewModelScope
 import com.example.core.data.source.Resource
 import com.example.core.domain.model.Movies
 import com.example.movieapp.domain.MovieUseCase
-import com.example.moviesapp.presentation.home.HomeUiState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.*
 import javax.inject.Inject

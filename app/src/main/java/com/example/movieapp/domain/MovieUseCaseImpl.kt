@@ -1,6 +1,5 @@
 package com.example.movieapp.domain
 
-import android.util.Log
 import com.example.core.data.repository.MoviesRepository
 import com.example.core.data.source.Resource
 import com.example.core.domain.model.Movies
@@ -13,19 +12,16 @@ class MovieUseCaseImpl @Inject constructor(private val moviesRepository: MoviesR
     override fun getNowPlaying(
         language: String?, page: Int?, region: String?
     ): Flow<Resource<List<Movies>>> {
-        Log.i("MovieUseCase", "nowPlaying: triggered")
         return moviesRepository.getNowPlaying(language, page, region)
     }
 
     override fun getPopularMovies(
         language: String?, page: Int?, region: String?
     ): Flow<Resource<List<Movies>>> {
-        Log.i("MovieUseCase", "popularMovies: triggered")
         return moviesRepository.getPopularMovies(language, page, region)
     }
 
     override fun getTrendingMovies(timeWindow: String): Flow<Resource<List<Movies>>> {
-        Log.i("MovieUseCase", "nowPlaying: triggered")
         return moviesRepository.getTrendingMovies(timeWindow)
     }
 

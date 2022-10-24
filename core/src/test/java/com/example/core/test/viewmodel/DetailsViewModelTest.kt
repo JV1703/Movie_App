@@ -1,17 +1,13 @@
 package com.example.core.test.viewmodel
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import com.example.core.domain.model.MovieDetails
 import com.example.core.fake.data.usecase.FakeMovieDetailsUseCase
 import com.example.core.utils.DataDummy
 import com.example.core.utils.MainCoroutineRule
 import com.example.details.presentation.details.DetailsViewModel
-import com.example.details.presentation.details.MovieDetailsUiState
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.test.runTest
 import org.junit.Assert.*

@@ -65,12 +65,4 @@ class FakeMovieUseCase : MovieUseCase {
         return flow { emit(resource) }
     }
 
-    fun testError(timeWindow: String): ApiResponse<TrendingMoviesResponse>{
-        val model = DataDummy.generateTrendingMoviesResponse(numberOfData)
-        val response =
-            DataDummy.generateResponse(isSuccess, isBodyEmpty) { Response.success(model) }
-        return apiResponseHandler(response)
-    }
-
-
 }

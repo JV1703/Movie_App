@@ -65,7 +65,6 @@ class DetailsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setupAdapter()
 
         collectLatestLifecycleFlow(viewModel.uiState) { uiState ->
 
@@ -73,6 +72,8 @@ class DetailsFragment : Fragment() {
             val bookmark = uiState.isBookmarked
             val isLoading = uiState.isLoading
             val initialLoad = uiState.initialLoad
+
+            setupAdapter(isLoading)
 
             binding.lottie.isGone = if (initialLoad) {
                 !isLoading
@@ -84,9 +85,6 @@ class DetailsFragment : Fragment() {
                 isLoading
             } else {
                 false
-            }
-            if (!isLoading) {
-                binding.scrollView.scrollTo(0, 0)
             }
 
             binding.backdropIv.load(BASE_IMG_URL + BANNER_PICTURE_SIZE + details?.posterPath) {
@@ -136,11 +134,14 @@ class DetailsFragment : Fragment() {
         super.onDestroyView()
     }
 
-    private fun setupAdapter() {
+    private fun setupAdapter(isLoading: Boolean) {
         castAdapter = CastAdapter {}
         crewAdapter = CrewAdapter {}
         recommendationAdapter = RecommendationAdapter {
             viewModel.saveMovieId(it)
+            if (!isLoading) {
+                binding.scrollView.scrollTo(0, 0)
+            }
         }
         videosAdapter = VideoAdapter {
             showVideoDialog(it.key)

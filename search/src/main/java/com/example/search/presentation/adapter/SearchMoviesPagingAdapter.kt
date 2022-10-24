@@ -1,6 +1,7 @@
 package com.example.search.presentation.adapter
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
@@ -18,6 +19,7 @@ class SearchMoviesPagingAdapter(private val clickListener: (SearchMovies) -> Uni
 
     class SearchMoviesViewHolder(private val binding: SearchMoviesItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
+        val footer = binding.footer
         fun bind(item: SearchMovies) {
             binding.moviePoster.load(Constants.BASE_IMG_URL + "w342" + item.posterPath) {
                 placeholder(R.drawable.loading_animation)
@@ -33,6 +35,9 @@ class SearchMoviesPagingAdapter(private val clickListener: (SearchMovies) -> Uni
 
     override fun onBindViewHolder(holder: SearchMoviesViewHolder, position: Int) {
         val item = getItem(position)
+        if (this@SearchMoviesPagingAdapter.itemCount-1 == position){
+            holder.footer.visibility = View.VISIBLE
+        }
         item?.let {
             holder.bind(item)
             holder.itemView.setOnClickListener {

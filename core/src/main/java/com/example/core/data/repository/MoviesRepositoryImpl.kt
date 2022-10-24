@@ -80,7 +80,8 @@ class MoviesRepositoryImpl @Inject constructor(
     }
 
     override fun getSavedMovies(): Flow<List<SavedMovie>> = local.getSavedMovies().map {
-        it.map { Mapper.toSavedMovie(it) }
+        it.map { savedMovieEntity ->
+            Mapper.toSavedMovie(savedMovieEntity) }
     }.flowOn(ioDispatcher)
 
     override suspend fun deleteSavedMovie(id: Int) = local.deleteSavedMovie(id)

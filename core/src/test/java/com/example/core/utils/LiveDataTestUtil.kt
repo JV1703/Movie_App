@@ -52,7 +52,7 @@ suspend fun <T> LiveData<T>.observeForTesting(block: suspend () -> Unit) {
 
 class LiveDataValueCapture<T> {
 
-    val lock = Any()
+    private val lock = Any()
 
     private val _values = mutableListOf<T?>()
     val values: List<T?>

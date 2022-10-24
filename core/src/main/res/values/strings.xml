@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="casts" tools:keep="@string/casts">Casts</string>
+    <string name="see_all" tools:keep="@string/see_all">See All</string>
+    <string name="crews" tools:keep="@string/crews">Crews</string>
+    <string name="retry">retry</string>
+    <string name="plot_summary" tools:keep="@string/plot_summary">Plot Summary</string>
+    <string name="recommendations" tools:keep="@string/recommendations">Recommendations</string>
+    <string name="videos" tools:keep="@string/videos">Videos</string>
+    <string name="search_movie" tools:keep="@string/search_movie">Search for your favorite movies</string>
+</resources>

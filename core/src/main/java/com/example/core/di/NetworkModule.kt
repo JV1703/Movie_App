@@ -50,21 +50,21 @@ class NetworkModule {
 
     @Provides
     @Singleton
-    fun moshi() = Moshi.Builder().add(KotlinJsonAdapterFactory()).build()
+    fun moshi(): Moshi = Moshi.Builder().add(KotlinJsonAdapterFactory()).build()
 
     @Provides
     @Singleton
-    fun moshiConverterFactory(moshi: Moshi) = MoshiConverterFactory.create(moshi)
+    fun moshiConverterFactory(moshi: Moshi): MoshiConverterFactory = MoshiConverterFactory.create(moshi)
 
     @Provides
     @Singleton
     fun retrofit(
         moshiConverterFactory: MoshiConverterFactory, okHttpClient: OkHttpClient
-    ) = Retrofit.Builder().addConverterFactory(moshiConverterFactory).client(okHttpClient)
+    ): Retrofit = Retrofit.Builder().addConverterFactory(moshiConverterFactory).client(okHttpClient)
         .baseUrl(BASE_URL).build()
 
     @Provides
     @Singleton
-    fun movieApi(retrofit: Retrofit) = retrofit.create(ApiService::class.java)
+    fun movieApi(retrofit: Retrofit): ApiService = retrofit.create(ApiService::class.java)
 
 }

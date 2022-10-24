@@ -6,25 +6,25 @@
         android:id="@+id/homeFragment"
         android:enabled="true"
         android:icon="@drawable/ic_home"
-        android:title="Home"
+        android:title="@string/home"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/search_nav_graph"
         android:enabled="true"
         android:icon="@drawable/ic_search"
-        android:title="Search"
+        android:title="@string/search"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/bookmark_nav_graph"
         android:enabled="true"
         android:icon="@drawable/ic_bookmark_fill"
-        android:title="Search"
+        android:title="@string/bookmark"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/userFragment"
         android:enabled="true"
         android:icon="@drawable/ic_person_outline"
-        android:title="Account"
+        android:title="@string/account"
         app:showAsAction="ifRoom" />
 
 </menu>
