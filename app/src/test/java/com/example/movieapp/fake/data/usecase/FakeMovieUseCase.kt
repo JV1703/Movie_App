@@ -1,11 +1,11 @@
-package com.example.core.fake.data.usecase
+package com.example.movieapp.fake.data.usecase
 
 import com.example.core.data.source.Resource
 import com.example.core.data.source.remote.network.ApiResponse
 import com.example.core.data.source.remote.network.apiResponseHandler
 import com.example.core.data.source.resourceHandler
 import com.example.core.domain.model.Movies
-import com.example.core.utils.DataDummy
+import com.example.movieapp.utils.DataDummy
 import com.example.core.utils.Mapper
 import com.example.movieapp.domain.MovieUseCase
 import kotlinx.coroutines.flow.Flow
