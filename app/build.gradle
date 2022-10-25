@@ -28,6 +28,10 @@ android {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+        debug {
+            // Run code coverage reports by default on debug builds.
+            testCoverageEnabled = true
+        }
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
