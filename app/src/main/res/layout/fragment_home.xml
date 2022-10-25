@@ -43,7 +43,8 @@
                     android:paddingEnd="120dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/now_playing_tv"
-                    tools:listitem="@layout/now_playing_items" />
+                    tools:listitem="@layout/now_playing_items"
+                    tools:ignore="RtlSymmetry" />
 
                 <TextView
                     android:id="@+id/popular_movies_tv"

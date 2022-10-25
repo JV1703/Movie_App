@@ -29,7 +29,7 @@ fun <T> AppCompatActivity.collectLatestLifecycleFlow(flow: Flow<T>, collect: sus
 
 fun <T> Fragment.collectLatestLifecycleFlow(flow: Flow<T>, collect: suspend (T) -> Unit) {
     viewLifecycleOwner.lifecycleScope.launch {
-        repeatOnLifecycle(Lifecycle.State.STARTED) {
+        viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
             flow.collectLatest(collect)
         }
     }
@@ -45,7 +45,7 @@ fun <T> AppCompatActivity.collectLifecycleFlow(flow: Flow<T>, collect: suspend (
 
 fun <T> Fragment.collectLifecycleFlow(flow: Flow<T>, collect: suspend (T) -> Unit) {
     lifecycleScope.launch {
-        repeatOnLifecycle(Lifecycle.State.STARTED) {
+        viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
             flow.collect(collect)
         }
     }
